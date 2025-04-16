@@ -1,0 +1,28 @@
+<h5>Cart List</h5>
+
+<div *ngFor="let Product of Cartarrays;let i = index" class="mt-3">
+    <b>Product Name:</b>{{Product.ProductName}},
+    <b>Price:</b>{{Product.Price}},
+    <b>Qty:</b>{{Product.Qty}}
+    <button class="btn btn-primary" (click)="AddQty(Product)">Add Qty</button>
+    <button class="btn btn-primary margin-left-2px" (click)="ReduceQty(Product)">Reduce Qty</button>
+    <button class="btn btn-danger margin-left-2px" (click)="RemoveProduct(Product,i)">Remove</button>
+</div>
+
+
+<div>
+    <span>
+        <b>Total Items:</b>{{Cartarrays.length}}
+    </span>    
+</div>
+
+<div>
+    <span>
+        <b>Total Amount:</b>{{TotalAmount}}
+    </span>    
+</div>
+
+<button *ngIf="Cartarrays.length > 0" [routerLink]="'/CheckOut'" class="btn btn-primary">CheckOut</button>
+
+<!-- <button *ngIf="Cartarrays.length > 0" (click)="ClearCart()">Clear</button> -->
+

@@ -1,0 +1,131 @@
+
+
+<form [formGroup]="CheckOutform" (ngSubmit)="Submit()">
+
+    <h5>Address Details</h5>
+
+    <div class="row">
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-6">
+            <div>
+                <label>First Name</label>
+            </div>
+            <div>
+                <input type="text" class="form-control" formControlName="FirstName">
+                <div class="reactive-form-text"
+                    *ngIf="CheckOutform.get('FirstName')?.invalid && CheckOutform.get('FirstName')?.touched">
+                    First Name is required
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-6">
+            <div>
+                <label>Middle Name</label>
+            </div>
+            <div>
+                <input class="form-control" type="text" formControlName="MiddleName">
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-6">
+            <div>
+                <label>Last Name</label>
+            </div>
+            <div>
+                <input type="text" formControlName="LastName" class="form-control">
+                <div class="reactive-form-text"
+                    *ngIf="CheckOutform.get('LastName')?.invalid && CheckOutform.get('LastName')?.touched">
+                    Last Name is required
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-6">
+            <div>
+                <label>Mobile No</label>
+            </div>
+            <div>
+                <input type="number" formControlName="MobilNo" [maxlength]="10" class="form-control">
+                <div class="reactive-form-text" *ngIf="CheckOutform.get('MobilNo')?.invalid && CheckOutform.get('MobilNo')?.touched
+                    ">
+                    Mobile No is required and Number Must be 10 Digits
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-6">
+            <div>
+                <label>Address</label>
+            </div>
+            <div>
+                <textarea name="" id="" formControlName="Address" class="form-control"></textarea>
+                <div class="reactive-form-text"
+                    *ngIf="CheckOutform.get('Address')?.invalid && CheckOutform.get('Address')?.touched">
+                    Address is required
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-6">
+            <div>
+                <label>PinCode</label>
+            </div>
+            <div>
+                <input type="number" formControlName="PinCode" class="form-control">
+                <div class="reactive-form-text"
+                    *ngIf="CheckOutform.get('PinCode')?.invalid && CheckOutform.get('PinCode')?.touched">
+                    PinCode is required
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<button [disabled]="CheckOutform.invalid" type="submit" class="btn btn-success mt-2">Submit</button>
+
+</form>
+
+<div *ngIf="PaymentFormAccess" class="mt-3">
+    <h5>Payment Details</h5>
+
+    <div class="row">
+        <div class="col-3">
+            <div><label>Payment Mode</label></div>
+            <div>
+                <select class="form-select">
+                    <option value="">--Select--</option>
+                    <option value="">Cash</option>
+                    <option value="Card">Credit Card</option>
+                    <option value="Card">Debit Card</option>
+                </select>
+            </div>               
+        </div>
+        
+        <div class="col-3">
+            <div>
+                <label>Card No</label>
+            </div>
+            <div>
+                <input type="number" formControlName="CardNo" class="form-control">
+            </div>               
+        </div>
+
+        <div class="col-3">
+            <div>
+                <label>Card Holder Name</label>
+            </div>
+            <div>
+                <input type="text" formControlName="HolderName" class="form-control">
+            </div>               
+        </div>
+        
+        <div class="col-3">
+            <div><label>Expiry Date</label></div>
+            <div> <input type="date" formControlName="Expiry Date" class="form-control"></div>               
+        </div>
+        
+        <div class="col-3">
+            <div><label>CVV</label></div>
+            <div><input type="number" formControlName="CVV" class="form-control"></div>
+        </div>
+    </div>
+  
+</div>

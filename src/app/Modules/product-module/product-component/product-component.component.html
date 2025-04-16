@@ -1,0 +1,33 @@
+<button [routerLink]="'/Cart'" class="btn btn-primary">View Cart</button>
+
+<h5 class="mt-4">Product List</h5>
+
+<div class="row mt-2">
+    <div class="col-3">
+        <input placeholder="search" class="form-control" type="search" [(ngModel)]="SearchInput">
+    </div>
+    <div class="col-2 d-flex p-0">
+        <button  class="btn btn-primary" (click)="SearchProduct()">search</button>
+    </div>
+    
+</div>
+
+<div class="row padding-10px">
+    <div class="col-3" *ngFor="let Product of Productarray;let i = index">
+        <div class="Product-Design">
+            <div>
+                <b>Product Name:</b> {{Product.ProductName}}
+            </div>
+            <div>
+                <b>Price:</b> {{Product.Price}}
+            </div>  
+            <div>
+                <b>Stock Qty:</b> {{Product.Qty}}
+            </div> 
+            <div class="text-align-center mt-2">
+                <button class="btn btn-success" (click)="AddCart(Product,i)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
